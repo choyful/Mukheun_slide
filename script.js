@@ -66,8 +66,8 @@ class ImageSlider {
         
         // 수직 스크롤 방지
         if (Math.abs(deltaX) > deltaY) {
-            const currentTransform = this.currentSlide * -9.09;
-            const dragPercentage = (deltaX / window.innerWidth) * 9.09;
+            const currentTransform = this.currentSlide * -8.333;
+            const dragPercentage = (deltaX / window.innerWidth) * 8.333;
             const newTransform = currentTransform + dragPercentage;
             
             this.slides.style.transform = `translateX(${newTransform}%)`;
@@ -173,7 +173,7 @@ class ImageSlider {
     }
     
     updateSlidePosition() {
-        const translateX = this.currentSlide * -9.09;
+        const translateX = this.currentSlide * -8.333;
         this.slides.style.transform = `translateX(${translateX}%)`;
     }
     

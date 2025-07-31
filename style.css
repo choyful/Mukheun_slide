@@ -30,7 +30,7 @@ body {
 }
 
 .slides {
-    width: 1100%;
+    width: 1200%;
     height: 100%;
     display: flex;
     transition: transform 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
@@ -38,7 +38,7 @@ body {
 }
 
 .slide {
-    width: 9.09%;
+    width: 8.333%;
     height: 100%;
     display: flex;
     align-items: center;
