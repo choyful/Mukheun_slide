@@ -1,7 +1,7 @@
 class ImageSlider {
     constructor() {
         this.currentSlide = 0;
-        this.totalSlides = 11;
+        this.totalSlides = 12;
         this.isAnimating = false;
         this.touchStartX = 0;
         this.touchEndX = 0;
