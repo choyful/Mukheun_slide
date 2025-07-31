@@ -1,0 +1,334 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background-color: #000;
+    overflow: hidden;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.slider-container {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    background-color: #000;
+    touch-action: pan-x;
+}
+
+.slider-wrapper {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.slides {
+    width: 1100%;
+    height: 100%;
+    display: flex;
+    transition: transform 0.3s cubic-bezier(0.25, 0.1, 0.25, 1);
+    will-change: transform;
+}
+
+.slide {
+    width: 9.09%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.slide img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(255, 255, 255, 0.1);
+}
+
+/* 네비게이션 버튼 */
+.nav-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.15);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    color: white;
+    font-size: 1.8rem;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border-radius: 50%;
+    z-index: 10;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    user-select: none;
+    -webkit-user-select: none;
+    line-height: 1;
+}
+
+.nav-btn:hover {
+    background: rgba(255, 255, 255, 0.25);
+    border-color: rgba(255, 255, 255, 0.4);
+    transform: translateY(-50%) scale(1.05);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.nav-btn:active {
+    transform: translateY(-50%) scale(0.95);
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.prev-btn {
+    left: 20px;
+}
+
+.next-btn {
+    right: 20px;
+}
+
+/* 인디케이터 */
+.indicators {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 8px 16px;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: 25px;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    z-index: 10;
+}
+
+.indicator {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.4);
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.indicator.active {
+    background: white;
+    width: 10px;
+    height: 10px;
+    border-color: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
+}
+
+.indicator:hover:not(.active) {
+    background: rgba(255, 255, 255, 0.7);
+    transform: scale(1.1);
+}
+
+/* 카운터 */
+.counter {
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    color: white;
+    font-size: 0.9rem;
+    font-weight: 500;
+    background: rgba(0, 0, 0, 0.4);
+    padding: 6px 12px;
+    border-radius: 16px;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    z-index: 10;
+    user-select: none;
+    -webkit-user-select: none;
+    letter-spacing: 0.5px;
+}
+
+/* 모바일 최적화 */
+@media (max-width: 768px) {
+    .nav-btn {
+        width: 45px;
+        height: 45px;
+        font-size: 1.5rem;
+    }
+    
+    .prev-btn {
+        left: 15px;
+    }
+    
+    .next-btn {
+        right: 15px;
+    }
+    
+    .indicators {
+        bottom: 25px;
+        gap: 8px;
+        padding: 6px 12px;
+    }
+    
+    .indicator {
+        width: 7px;
+        height: 7px;
+    }
+    
+    .indicator.active {
+        width: 9px;
+        height: 9px;
+    }
+    
+    .counter {
+        top: 20px;
+        right: 20px;
+        font-size: 0.85rem;
+        padding: 5px 10px;
+        border-radius: 14px;
+    }
+}
+
+@media (max-width: 480px) {
+    .nav-btn {
+        width: 40px;
+        height: 40px;
+        font-size: 1.3rem;
+    }
+    
+    .prev-btn {
+        left: 12px;
+    }
+    
+    .next-btn {
+        right: 12px;
+    }
+    
+    .indicators {
+        bottom: 20px;
+        gap: 6px;
+        padding: 5px 10px;
+    }
+    
+    .indicator {
+        width: 6px;
+        height: 6px;
+    }
+    
+    .indicator.active {
+        width: 8px;
+        height: 8px;
+    }
+    
+    .counter {
+        top: 15px;
+        right: 15px;
+        font-size: 0.8rem;
+        padding: 4px 8px;
+        border-radius: 12px;
+    }
+}
+
+/* 안전 영역 고려 (노치 디스플레이) */
+@supports (padding: max(0px)) {
+    .counter {
+        top: max(30px, env(safe-area-inset-top) + 10px);
+        right: max(30px, env(safe-area-inset-right) + 10px);
+    }
+    
+    .indicators {
+        bottom: max(30px, env(safe-area-inset-bottom) + 10px);
+    }
+    
+    .prev-btn {
+        left: max(20px, env(safe-area-inset-left) + 10px);
+    }
+    
+    .next-btn {
+        right: max(20px, env(safe-area-inset-right) + 10px);
+    }
+    
+    @media (max-width: 768px) {
+        .counter {
+            top: max(20px, env(safe-area-inset-top) + 5px);
+            right: max(20px, env(safe-area-inset-right) + 5px);
+        }
+        
+        .indicators {
+            bottom: max(25px, env(safe-area-inset-bottom) + 5px);
+        }
+        
+        .prev-btn {
+            left: max(15px, env(safe-area-inset-left) + 5px);
+        }
+        
+        .next-btn {
+            right: max(15px, env(safe-area-inset-right) + 5px);
+        }
+    }
+    
+    @media (max-width: 480px) {
+        .counter {
+            top: max(15px, env(safe-area-inset-top) + 5px);
+            right: max(15px, env(safe-area-inset-right) + 5px);
+        }
+        
+        .indicators {
+            bottom: max(20px, env(safe-area-inset-bottom) + 5px);
+        }
+        
+        .prev-btn {
+            left: max(12px, env(safe-area-inset-left) + 5px);
+        }
+        
+        .next-btn {
+            right: max(12px, env(safe-area-inset-right) + 5px);
+        }
+    }
+}
+
+/* 터치 피드백 */
+.slide img {
+    user-select: none;
+    -webkit-user-select: none;
+    -webkit-touch-callout: none;
+}
+
+/* 로딩 상태 */
+.slide img {
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.slide img.loaded {
+    opacity: 1;
+}
+
+/* 스와이프 인디케이터 */
+.slider-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+    z-index: 5;
+    background: linear-gradient(90deg, 
+        rgba(0,0,0,0.1) 0%, 
+        transparent 10%, 
+        transparent 90%, 
+        rgba(0,0,0,0.1) 100%);
+}

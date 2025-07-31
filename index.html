@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이미지 슬라이드 뷰어</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="slider-container">
+        <div class="slider-wrapper">
+            <div class="slides">
+                <div class="slide active">
+                    <img src="images/image1.jpg" alt="이미지 1">
+                </div>
+                <div class="slide">
+                    <img src="images/image2.jpeg" alt="이미지 2">
+                </div>
+                <div class="slide">
+                    <img src="images/image3.jpeg" alt="이미지 3">
+                </div>
+                <div class="slide">
+                    <img src="images/image4.jpeg" alt="이미지 4">
+                </div>
+                <div class="slide">
+                    <img src="images/image5.jpeg" alt="이미지 5">
+                </div>
+                <div class="slide">
+                    <img src="images/image6.jpeg" alt="이미지 6">
+                </div>
+                <div class="slide">
+                    <img src="images/image7.jpeg" alt="이미지 7">
+                </div>
+                <div class="slide">
+                    <img src="images/image8.jpeg" alt="이미지 8">
+                </div>
+                <div class="slide">
+                    <img src="images/image9.jpeg" alt="이미지 9">
+                </div>
+                <div class="slide">
+                    <img src="images/image10.jpeg" alt="이미지 10">
+                </div>
+                <div class="slide">
+                    <img src="images/image11.jpeg" alt="이미지 11">
+                </div>
+            </div>
+        </div>
+        
+        <!-- 네비게이션 버튼 -->
+        <button class="nav-btn prev-btn" id="prevBtn">&#8249;</button>
+        <button class="nav-btn next-btn" id="nextBtn">&#8250;</button>
+        
+        <!-- 인디케이터 -->
+        <div class="indicators">
+            <span class="indicator active" data-slide="0"></span>
+            <span class="indicator" data-slide="1"></span>
+            <span class="indicator" data-slide="2"></span>
+            <span class="indicator" data-slide="3"></span>
+            <span class="indicator" data-slide="4"></span>
+            <span class="indicator" data-slide="5"></span>
+            <span class="indicator" data-slide="6"></span>
+            <span class="indicator" data-slide="7"></span>
+            <span class="indicator" data-slide="8"></span>
+            <span class="indicator" data-slide="9"></span>
+            <span class="indicator" data-slide="10"></span>
+        </div>
+        
+        <!-- 이미지 카운터 -->
+        <div class="counter">
+            <span id="currentSlide">1</span> / <span id="totalSlides">11</span>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
